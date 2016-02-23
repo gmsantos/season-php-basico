@@ -3,4 +3,4 @@
 $a = "Hello " . "World";
 
 $b = "Hello";
-$b .= " World"; 
+$b .= " World";
