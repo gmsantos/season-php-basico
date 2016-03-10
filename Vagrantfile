@@ -56,6 +56,9 @@ Vagrant.configure(2) do |config|
     # Habilitar erros do PHP
     sudo sed -i "s/error_reporting = .*/error_reporting = E_ALL/" /etc/php5/apache2/php.ini 
     sudo sed -i "s/display_errors = .*/display_errors = On/" /etc/php5/apache2/php.ini
+    
+    # Configura apache para listar os arquivos
+    sudo sed -i "s/Options\s-Indexes/Options +Indexes/" /etc/apache2/sites-enabled/vagrant.conf
    
     # Cria um novo usuario chamado php no MySQL
     sudo mysql -e "CREATE USER 'php'@'%' IDENTIFIED BY 'senha'; GRANT ALL PRIVILEGES ON *.* TO 'php'@'%';"
