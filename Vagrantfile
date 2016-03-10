@@ -50,7 +50,7 @@ Vagrant.configure(2) do |config|
 	
     # Faz update da VM
     sudo apt-get update
-    sudo apt-get upgrade -y
+    sudo apt-get upgrade -y --force-yes
     sudo apt-get autoremove -y
     
     # Habilitar erros do PHP
@@ -62,5 +62,8 @@ Vagrant.configure(2) do |config|
    
     # Cria um novo usuario chamado php no MySQL
     sudo mysql -e "CREATE USER 'php'@'%' IDENTIFIED BY 'senha'; GRANT ALL PRIVILEGES ON *.* TO 'php'@'%';"
+    
+    # Por ultimo reinicia o serviço do Apache
+    sudo service apache2 restart
   SHELL
 end
