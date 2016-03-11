@@ -19,7 +19,12 @@ function numeroMaior(array $numeros)
 }
 
 
+
 $descobrir = numeroMaior([1,2,88,3,4,5,6]);
+
+var_dump($descobrir,  numeroMaior([1,2,88,3,4,5,6]) );
+
 echo $descobrir;
 
-echo numeroMaior(1);
+
+
