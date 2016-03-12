@@ -2,7 +2,7 @@
 
 $fileResource = fopen(__FILE__, 'r');
 
-while (! feol($fileResource)){
+while (! feof($fileResource)){
     echo fread($fileResource, 1024);
 }
 
