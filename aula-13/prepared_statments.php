@@ -1,29 +1,29 @@
 <?php
 
-$mysqli = new mysqli('127.0.0.1', 'usuario', 'senha', 'meusite');
+$mysqli = new mysqli('localhost', 'php', 'senha', 'teste');
 
 if ($mysqli->connect_errno) {
     die('Não foi possível conectar-se ao banco de dados: ' . $mysqli->connect_errno);
     exit();
 }
 
-// "Hoje" em formato SQL
-$data = date('Y-m-d');
-
 // Prepara uma consulta SQL
-if ($sql = $mysqli->prepare("SELECT `id`, `titulo`, `link` FROM `noticias` WHERE `ativa` = 1 AND `data` <= ?")) {
+$insertStmt = $mysqli->prepare('INSERT INTO mensagem (mensagem) VALUES (?)');
+$insertStmt->bind_param('s', $data);
 
-  $sql->bind_param('s', $data);
-  $sql->execute();
-  $sql->bind_result($id, $titulo, $link);
+$data = 'Timestamp: ' . date('U');
 
-  while ($row = $sql->fetch_assoc()) {
-    echo '['. $row['titulo'] .']('. $row['link'] .')';
-  } 
-  
-  echo 'Total de notícias: ' . $sql->num_rows;
+$insertStmt->execute();
+$insertStmt->close();
 
-  $sql->close();
+$selectStmt = $mysqli->prepare('SELECT * FROM mensagem');
+$selectStmt->execute();
+
+$selectStmt->bind_result($mensagem);
+
+while ($selectStmt->fetch()) {
+    echo $mensagem . '<br>';
 }
 
+$selectStmt->close();
 $mysqli->close();
