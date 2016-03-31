@@ -51,6 +51,7 @@ Vagrant.configure(2) do |config|
     # Faz update da VM
     sudo apt-get update
     sudo apt-get upgrade -y --force-yes
+    sudo apt-get php5-mysqlnd
     sudo apt-get autoremove -y
     
     # Habilitar erros do PHP
