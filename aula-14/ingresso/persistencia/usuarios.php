@@ -1,8 +1,8 @@
 <?php
 
-function repo_usuarios_listar()
+function repo_usuarios_all()
 {
-    return listar('usuarios');
+    return select('usuarios');
 }
 
 function repo_usuarios_get($id)
@@ -10,7 +10,7 @@ function repo_usuarios_get($id)
     
 }
 
-function repo_usuarios_incluir($nome, $cidade)
+function repo_usuarios_add($nome, $cidade)
 {
     
 }

@@ -12,11 +12,13 @@ $conteudo = <<<CONTEUDO
     
     <a href="usuarios/index.php">Lista de Usuários</a>
     <a href="eventos/index.php">Lista de eventos</a>
-    
+        
     <h2>Relatórios</h2>
     
     <a href="ingressos/vendas.php">Número de Ingressos vendidos por evento</a>
-    <a href="eventos/arrecadacao.php">Total Arrecadado por evento</a>    
+    <a href="eventos/arrecadacao.php">Total Arrecadado por evento</a>
+    
+    <hr />
 CONTEUDO;
 
 gerar_pagina($conteudo);

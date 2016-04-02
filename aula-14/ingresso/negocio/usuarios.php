@@ -5,7 +5,7 @@
  */
 function usuarios_listar()
 {
-    return repo_usuarios_listar();
+    return repo_usuarios_all();
 }
 
 function usuarios_novo($nome, $cidade)
